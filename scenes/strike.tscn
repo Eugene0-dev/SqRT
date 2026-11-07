@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://lnbgsp5xr0kt"]
 
+[ext_resource type="Script" uid="uid://duog3eugdxd0d" path="res://scripts/strike.gd" id="1_0o8ji"]
 [ext_resource type="Shader" uid="uid://drs5il1jl7pq1" path="res://shaders/outline.gdshader" id="1_lwoq4"]
 [ext_resource type="Shader" uid="uid://oespjy30286q" path="res://shaders/fill.gdshader" id="2_0o8ji"]
 
@@ -28,6 +29,7 @@ radius = 1.0
 radius = 500.0
 
 [node name="Strike" type="CharacterBody2D" unique_id=144507513]
+script = ExtResource("1_0o8ji")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1062559737]
 polygon = PackedVector2Array(-11, 9, 0, -9, 11, 9)

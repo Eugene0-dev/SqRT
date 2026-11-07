@@ -9,13 +9,14 @@ var square: Square
 var counta: Counta
 var numbas: Array[Numba] = []
 
-enum shape_types {SQUARE, TRIANGLE, CIRCLE}
+enum shape_types {SQUARE, TRIANGLE, CIRCLE, STRIKE}
 enum object_types {NUMBA, COUNTA}
 
 var shape_scenes: Dictionary = {
 	shape_types.SQUARE: load("res://scenes/square.tscn"),
 	shape_types.TRIANGLE: load("res://scenes/triangle.tscn"),
-	shape_types.CIRCLE: load("res://scenes/circle.tscn")
+	shape_types.CIRCLE: load("res://scenes/circle.tscn"),
+	shape_types.STRIKE: load("res://scenes/strike.tscn")
 }
 
 var object_scenes: Dictionary = {
@@ -38,6 +39,11 @@ func _ready() -> void:
 		shape_types.TRIANGLE,
 		square.global_position + Vector2(0.0, -100.0),
 		{"health": 200, "square": square}
+	)
+	spawn(
+		shape_types.STRIKE,
+		square.global_position + Vector2(0.0, 100.0),
+		{"health": 200, "square": square, "speed": 200}
 	)
 	drop(
 		object_types.COUNTA,
@@ -96,7 +102,7 @@ func spawn(shape_type: shape_types, pos: Vector2, args: Dictionary) -> void:
 	shape.global_position = pos
 	
 	if shape is Circle: circles.append(shape)
-	elif shape is Triangle: triangles.append(shape)
+	elif shape is Triangle or shape is Strike: triangles.append(shape)
 	elif shape is Square: square = shape
 	
 	shape.shape_destroyed.connect(on_shape_destroyed)
