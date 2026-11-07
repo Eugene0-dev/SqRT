@@ -24,6 +24,7 @@ shader_parameter/noise_scale = 8.0
 shader_parameter/animation_speed = 0.5
 
 [node name="Square" type="CharacterBody2D" unique_id=1554502187]
+motion_mode = 1
 script = ExtResource("1_0thag")
 max_health = 0
 
