@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://ddd0jv8r1g1k"]
+
+[ext_resource type="Shader" uid="uid://drs5il1jl7pq1" path="res://shaders/outline.gdshader" id="1_w4fhm"]
+[ext_resource type="Shader" uid="uid://oespjy30286q" path="res://shaders/fill.gdshader" id="2_jku2l"]
+[ext_resource type="Shader" uid="uid://bwx07lhdenrd3" path="res://shaders/charge.gdshader" id="3_l2ixq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c4orl"]
+shader = ExtResource("1_w4fhm")
+shader_parameter/glow_color = Color(0, 0.9019608, 0, 0.8235294)
+shader_parameter/glow_intensity = 3.5
+shader_parameter/pulse_speed = 4.0
+shader_parameter/pulse_min = 0.6
+
+[sub_resource type="PrismMesh" id="PrismMesh_dl74c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_52dfa"]
+shader = ExtResource("1_w4fhm")
+shader_parameter/glow_color = Color(0, 0.9019608, 0, 0.8235294)
+shader_parameter/glow_intensity = 3.5
+shader_parameter/pulse_speed = 4.0
+shader_parameter/pulse_min = 0.6
+
+[sub_resource type="PrismMesh" id="PrismMesh_u26i2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oqcqh"]
+shader = ExtResource("2_jku2l")
+shader_parameter/color_one = Color(0, 1, 0, 1)
+shader_parameter/color_two = Color(1, 1, 0, 1)
+shader_parameter/noise_scale = 8.0
+shader_parameter/animation_speed = 0.5
+
+[sub_resource type="PrismMesh" id="PrismMesh_52dfa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5qlqa"]
+shader = ExtResource("2_jku2l")
+shader_parameter/color_one = Color(0, 1, 0, 1)
+shader_parameter/color_two = Color(1, 1, 0, 1)
+shader_parameter/noise_scale = 8.0
+shader_parameter/animation_speed = 0.5
+
+[sub_resource type="PrismMesh" id="PrismMesh_c4orl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m864d"]
+shader = ExtResource("3_l2ixq")
+shader_parameter/charge = 1.0
+shader_parameter/glow_color = Color(1, 1, 1, 1)
+shader_parameter/glow_origin = Vector2(0.85, 0.3)
+
+[sub_resource type="PrismMesh" id="PrismMesh_oqcqh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u26i2"]
+radius = 500.0
+
+[node name="Rapire" type="CharacterBody2D" unique_id=1697922618]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=1514285898]
+polygon = PackedVector2Array(0, -35, 20, 5, 13, 5, 20, 20, -20, 20, -13, 5, -20, 5)
+
+[node name="Outline_MeshInstance2D2" type="MeshInstance2D" parent="CollisionShape2D" unique_id=1402410058]
+material = SubResource("ShaderMaterial_c4orl")
+rotation = 3.1415925
+scale = Vector2(40, 40)
+mesh = SubResource("PrismMesh_dl74c")
+
+[node name="Outline_MeshInstance2D" type="MeshInstance2D" parent="CollisionShape2D" unique_id=97236539]
+material = SubResource("ShaderMaterial_52dfa")
+position = Vector2(0, -15)
+rotation = -3.1415927
+scale = Vector2(40, 40)
+mesh = SubResource("PrismMesh_u26i2")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="CollisionShape2D/Outline_MeshInstance2D" unique_id=988127497]
+material = SubResource("ShaderMaterial_oqcqh")
+position = Vector2(3.2783543e-08, -0.38499996)
+scale = Vector2(0.9, 0.9)
+mesh = SubResource("PrismMesh_52dfa")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CollisionShape2D/Outline_MeshInstance2D" unique_id=1668979309]
+material = SubResource("ShaderMaterial_5qlqa")
+position = Vector2(0, -0.01)
+scale = Vector2(0.9, 0.9)
+mesh = SubResource("PrismMesh_c4orl")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=920820033]
+material = SubResource("ShaderMaterial_m864d")
+position = Vector2(-2.842171e-14, -4)
+rotation = -3.1415927
+scale = Vector2(15, 15)
+mesh = SubResource("PrismMesh_oqcqh")
+
+[node name="Health_Area2D" type="Area2D" parent="." unique_id=2032553056]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Health_Area2D" unique_id=2123634617]
+polygon = PackedVector2Array(0, -36, -22, 6, -15, 6, -14, 6, -22, 21, 22, 21, 14, 6, 22, 6)
+
+[node name="Sight_Area2D" type="Area2D" parent="." unique_id=1313166184]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sight_Area2D" unique_id=1808773860]
+shape = SubResource("CircleShape2D_u26i2")

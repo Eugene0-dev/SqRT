@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://lnbgsp5xr0kt"]
+
+[ext_resource type="Shader" uid="uid://drs5il1jl7pq1" path="res://shaders/outline.gdshader" id="1_lwoq4"]
+[ext_resource type="Shader" uid="uid://oespjy30286q" path="res://shaders/fill.gdshader" id="2_0o8ji"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c4orl"]
+shader = ExtResource("1_lwoq4")
+shader_parameter/glow_color = Color(0.9529412, 0.46666667, 0.1254902, 0.8235294)
+shader_parameter/glow_intensity = 3.5
+shader_parameter/pulse_speed = 4.0
+shader_parameter/pulse_min = 0.6
+
+[sub_resource type="PrismMesh" id="PrismMesh_u26i2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_52dfa"]
+shader = ExtResource("2_0o8ji")
+shader_parameter/color_one = Color(0.95686275, 0.73333335, 0.2, 1)
+shader_parameter/color_two = Color(0.83137256, 0.41960785, 0.14117648, 1)
+shader_parameter/noise_scale = 8.0
+shader_parameter/animation_speed = 0.5
+
+[sub_resource type="PrismMesh" id="PrismMesh_dl74c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u26i2"]
+radius = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dl74c"]
+radius = 500.0
+
+[node name="Strike" type="CharacterBody2D" unique_id=144507513]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1062559737]
+polygon = PackedVector2Array(-11, 9, 0, -9, 11, 9)
+
+[node name="Outline_MeshInstance2D" type="MeshInstance2D" parent="CollisionPolygon2D" unique_id=379253483]
+material = SubResource("ShaderMaterial_c4orl")
+rotation = -3.1415927
+scale = Vector2(25, 20)
+mesh = SubResource("PrismMesh_u26i2")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CollisionPolygon2D/Outline_MeshInstance2D" unique_id=661734728]
+material = SubResource("ShaderMaterial_52dfa")
+position = Vector2(0, -0.01)
+scale = Vector2(0.9, 0.9)
+mesh = SubResource("PrismMesh_dl74c")
+
+[node name="Damage_Area2D" type="Area2D" parent="." unique_id=2066152983]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage_Area2D" unique_id=28198535]
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_u26i2")
+
+[node name="Sight_Area2D" type="Area2D" parent="." unique_id=410972100]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sight_Area2D" unique_id=1181562619]
+shape = SubResource("CircleShape2D_dl74c")
