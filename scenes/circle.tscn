@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://b20aggmxn5oc0"]
+
+[ext_resource type="Shader" uid="uid://dwwh4bhm2nscf" path="res://shaders/outline.gdshader" id="1_3e3c1"]
+[ext_resource type="Script" uid="uid://cugyjrkf08uea" path="res://scripts/circle.gd" id="1_g1fdt"]
+[ext_resource type="Shader" uid="uid://luki7bk83tm4" path="res://shaders/fill.gdshader" id="2_g1fdt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g1fdt"]
+radius = 15.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u1wel"]
+shader = ExtResource("1_3e3c1")
+shader_parameter/glow_color = Color(0, 0.14117648, 1, 0.76862746)
+shader_parameter/glow_intensity = 3.5
+shader_parameter/pulse_speed = 4.0
+shader_parameter/pulse_min = 0.6
+
+[sub_resource type="SphereMesh" id="SphereMesh_kbnl5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h7xi0"]
+shader = ExtResource("2_g1fdt")
+shader_parameter/color_one = Color(0.101960786, 0.050980393, 0.5568628, 1)
+shader_parameter/color_two = Color(0.4, 0.101960786, 0.89411765, 1)
+shader_parameter/noise_scale = 8.0
+shader_parameter/animation_speed = 0.5
+
+[node name="Circle" type="CharacterBody2D" unique_id=142974659]
+script = ExtResource("1_g1fdt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=398097693]
+shape = SubResource("CircleShape2D_g1fdt")
+
+[node name="Outline_MeshInstance2D" type="MeshInstance2D" parent="CollisionShape2D" unique_id=1396604833]
+material = SubResource("ShaderMaterial_u1wel")
+scale = Vector2(30, 30)
+mesh = SubResource("SphereMesh_kbnl5")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CollisionShape2D" unique_id=1972708386]
+material = SubResource("ShaderMaterial_h7xi0")
+scale = Vector2(28, 28)
+mesh = SubResource("SphereMesh_kbnl5")

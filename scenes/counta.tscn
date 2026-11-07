@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://c5lor0skibiu3"]
+
+[ext_resource type="Script" uid="uid://bebdtp3sunq60" path="res://scripts/counta.gd" id="1_3whri"]
+[ext_resource type="Shader" uid="uid://bc5lryg7h08hh" path="res://shaders/ghosting.gdshader" id="2_l4ei1"]
+[ext_resource type="Shader" uid="uid://to1bw5ai3vdg" path="res://shaders/counta.gdshader" id="2_x08cf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hyu26"]
+radius = 41.04875
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_kbnl5"]
+viewport_path = NodePath("Visuals/SubViewportContainer/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y5xg4"]
+shader = ExtResource("2_x08cf")
+shader_parameter/aberration = 2.0
+shader_parameter/ghost_offset = 5.0
+shader_parameter/ghost_alpha = 0.2
+shader_parameter/flicker = 0.3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ylf3m"]
+shader = ExtResource("2_x08cf")
+shader_parameter/aberration = 1.0
+shader_parameter/ghost_offset = 2.0
+shader_parameter/ghost_alpha = 0.2
+shader_parameter/flicker = 0.3
+
+[sub_resource type="LabelSettings" id="LabelSettings_kbnl5"]
+font_size = 64
+outline_size = 9
+outline_color = Color(1, 1, 1, 0.5764706)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_l4ei1"]
+viewport_path = NodePath("Visuals/SubViewportContainer/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gbskb"]
+viewport_path = NodePath("Visuals/SubViewportContainer/TrialViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1eqix"]
+resource_local_to_scene = true
+shader = ExtResource("2_l4ei1")
+shader_parameter/previous_frame = SubResource("ViewportTexture_gbskb")
+shader_parameter/current_frame = SubResource("ViewportTexture_l4ei1")
+shader_parameter/decay = 0.50000002375
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7opt0"]
+viewport_path = NodePath("Visuals/SubViewportContainer/TrialViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6y7v6"]
+viewport_path = NodePath("Visuals/SubViewportContainer/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hyu26"]
+resource_local_to_scene = true
+shader = ExtResource("2_l4ei1")
+shader_parameter/previous_frame = SubResource("ViewportTexture_6y7v6")
+shader_parameter/current_frame = SubResource("ViewportTexture_7opt0")
+shader_parameter/decay = 0.92
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kbnl5"]
+radius = 56.008926
+
+[node name="Counta" type="CharacterBody2D" unique_id=1128618916]
+position = Vector2(0, -2.08556)
+collision_layer = 4
+collision_mask = 4
+velocity = Vector2(0, 9.997059)
+script = ExtResource("1_3whri")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2048120855]
+shape = SubResource("CircleShape2D_hyu26")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=989989724]
+
+[node name="Ghost_Sprite2D" type="Sprite2D" parent="Visuals" unique_id=661614514]
+visible = false
+texture = SubResource("ViewportTexture_kbnl5")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Visuals" unique_id=1463071172]
+material = SubResource("ShaderMaterial_y5xg4")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(200, 200)
+
+[node name="SubViewport" type="SubViewport" parent="Visuals/SubViewportContainer" unique_id=1320609644]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(112, 111)
+render_target_update_mode = 4
+
+[node name="Label" type="Label" parent="Visuals/SubViewportContainer/SubViewport" unique_id=1033508610]
+material = SubResource("ShaderMaterial_ylf3m")
+offset_left = -2.0
+offset_top = 10.0
+offset_right = 118.0
+offset_bottom = 98.0
+text = "0"
+label_settings = SubResource("LabelSettings_kbnl5")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Visuals/SubViewportContainer/SubViewport" unique_id=887885519]
+material = SubResource("ShaderMaterial_1eqix")
+offset_right = 112.0
+offset_bottom = 111.0
+
+[node name="TrialViewport" type="SubViewport" parent="Visuals/SubViewportContainer" unique_id=957518225]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(112, 111)
+render_target_update_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="Visuals/SubViewportContainer/TrialViewport" unique_id=701539108]
+material = SubResource("ShaderMaterial_hyu26")
+offset_right = 112.0
+offset_bottom = 111.0
+
+[node name="Collect_Area2D" type="Area2D" parent="." unique_id=1241576932]
+visible = false
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collect_Area2D" unique_id=1579244094]
+shape = SubResource("CircleShape2D_kbnl5")

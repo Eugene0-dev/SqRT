@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://hqidl1l7ynp1"]
+
+[ext_resource type="Script" uid="uid://cpf0bq4dxfiri" path="res://scripts/laser.gd" id="1_a7dhc"]
+[ext_resource type="Shader" uid="uid://luki7bk83tm4" path="res://shaders/fill.gdshader" id="1_xmihv"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_kbnl5"]
+b = Vector2(0, -28)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kbnl5"]
+shader = ExtResource("1_xmihv")
+shader_parameter/color_one = Color(0.84705883, 0.64705884, 0.2, 1)
+shader_parameter/color_two = Color(1, 0.36862746, 0.1764706, 1)
+shader_parameter/noise_scale = 8.0
+shader_parameter/animation_speed = 0.5
+
+[node name="Laser" type="Node2D" unique_id=426381609]
+script = ExtResource("1_a7dhc")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=23718676]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1450340097]
+shape = SubResource("SegmentShape2D_kbnl5")
+
+[node name="ColorRect" type="ColorRect" parent="Area2D" unique_id=349421207]
+material = SubResource("ShaderMaterial_kbnl5")
+offset_left = -1.0
+offset_top = -28.0
+offset_right = 1.0

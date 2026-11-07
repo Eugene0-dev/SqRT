@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://cgbigau6i3llo"]
+
+[ext_resource type="Shader" uid="uid://dwwh4bhm2nscf" path="res://shaders/outline.gdshader" id="1_h7xi0"]
+[ext_resource type="Script" uid="uid://ck2406whn0x2w" path="res://scripts/triangle.gd" id="1_u1wel"]
+[ext_resource type="Shader" uid="uid://luki7bk83tm4" path="res://shaders/fill.gdshader" id="2_u1wel"]
+[ext_resource type="PackedScene" uid="uid://hqidl1l7ynp1" path="res://scenes/laser.tscn" id="4_l0nj1"]
+[ext_resource type="Shader" uid="uid://bvoo2qhirppgn" path="res://shaders/charge.gdshader" id="5_8ul5g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1a5g5"]
+shader = ExtResource("1_h7xi0")
+shader_parameter/glow_color = Color(0.9529412, 0.46666667, 0.1254902, 0.8235294)
+shader_parameter/glow_intensity = 2.000000095
+shader_parameter/pulse_speed = 2.000000095
+shader_parameter/pulse_min = 0.6
+
+[sub_resource type="PrismMesh" id="PrismMesh_kbnl5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vmnwk"]
+shader = ExtResource("2_u1wel")
+shader_parameter/color_one = Color(0.95686275, 0.73333335, 0.2, 1)
+shader_parameter/color_two = Color(0.83137256, 0.41960785, 0.14117648, 1)
+shader_parameter/noise_scale = 8.0
+shader_parameter/animation_speed = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l0nj1"]
+shader = ExtResource("5_8ul5g")
+shader_parameter/charge = 0.0
+shader_parameter/glow_color = Color(0.9319033, 0.13998404, 1.92523e-07, 1)
+shader_parameter/glow_origin = Vector2(0.85, 0.3)
+
+[sub_resource type="PrismMesh" id="PrismMesh_hyu26"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kbnl5"]
+radius = 500.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hyu26"]
+radius = 1.0
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_kbnl5"]
+b = Vector2(0, -48)
+
+[node name="Triangle" type="CharacterBody2D" unique_id=1316564721]
+script = ExtResource("1_u1wel")
+
+[node name="Laser" parent="." unique_id=426381609 instance=ExtResource("4_l0nj1")]
+position = Vector2(0, -26)
+rotation = -3.1415925
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=347197635]
+polygon = PackedVector2Array(25, 19, -25, 19, 0, -31)
+
+[node name="Outline_MeshInstance2D" type="MeshInstance2D" parent="CollisionShape2D" unique_id=2128875795]
+material = SubResource("ShaderMaterial_1a5g5")
+position = Vector2(0, -6)
+rotation = -3.1415925
+scale = Vector2(50, 50)
+mesh = SubResource("PrismMesh_kbnl5")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CollisionShape2D/Outline_MeshInstance2D" unique_id=18036930]
+material = SubResource("ShaderMaterial_vmnwk")
+position = Vector2(-3.0199159e-09, -0.02)
+scale = Vector2(0.9, 0.9)
+mesh = SubResource("PrismMesh_kbnl5")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1645865222]
+material = SubResource("ShaderMaterial_l0nj1")
+position = Vector2(-1.4210855e-14, -2.0000002)
+rotation = 3.1415927
+scale = Vector2(18, 18.079763)
+mesh = SubResource("PrismMesh_hyu26")
+
+[node name="SightField_Area2D" type="Area2D" parent="." unique_id=418194073]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SightField_Area2D" unique_id=941654415]
+position = Vector2(2, 1)
+shape = SubResource("CircleShape2D_kbnl5")
+
+[node name="Damage_Area2D" type="Area2D" parent="." unique_id=1237243480]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage_Area2D" unique_id=2096547470]
+position = Vector2(0, -31)
+shape = SubResource("CircleShape2D_hyu26")
+
+[node name="Dash_Area2D" type="Area2D" parent="." unique_id=654665155]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dash_Area2D" unique_id=237944030]
+position = Vector2(0, -31)
+shape = SubResource("SegmentShape2D_kbnl5")

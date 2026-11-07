@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://p6dkytgbualm"]
+
+[ext_resource type="Script" uid="uid://dcn5ny27dvk82" path="res://scripts/world.gd" id="1_4wyf3"]
+[ext_resource type="Shader" uid="uid://gqjxso10kekk" path="res://shaders/background.gdshader" id="1_nnsk1"]
+[ext_resource type="Shader" uid="uid://c7rx2oc3ucpkm" path="res://shaders/bg_l2.gdshader" id="2_rwgxs"]
+[ext_resource type="Script" uid="uid://bh4b55cofquva" path="res://scripts/camera.gd" id="4_k0juu"]
+[ext_resource type="PackedScene" uid="uid://bney85h8qdpc0" path="res://scenes/UI/info.tscn" id="5_71j4m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kbnl5"]
+shader = ExtResource("1_nnsk1")
+shader_parameter/space_bg_color = Color(0.02, 0.01, 0.05, 1)
+shader_parameter/star_density = 160.000007125
+shader_parameter/twinkle_speed = 3.0000001392401203
+shader_parameter/parallax_scroll_speed = Vector2(0.02, 0.01)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hyu26"]
+shader = ExtResource("2_rwgxs")
+shader_parameter/nebula_color_1 = Color(0.5, 0.1, 0.8, 1)
+shader_parameter/nebula_color_2 = Color(0.1, 0.4, 0.9, 1)
+shader_parameter/cloud_scale = 4.00000016625
+shader_parameter/density = 1.2
+shader_parameter/drift_speed = Vector2(0.01, 0.005)
+
+[node name="World" type="Node2D" unique_id=1859732104]
+script = ExtResource("1_4wyf3")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1857262916]
+scroll_offset = Vector2(0.2, 0)
+
+[node name="ColorRect" type="ColorRect" parent="Parallax2D" unique_id=181192765]
+material = SubResource("ShaderMaterial_kbnl5")
+offset_left = -584.0
+offset_top = -317.0
+offset_right = 568.0
+offset_bottom = 331.0
+scale = Vector2(2, 2)
+color = Color(0, 0, 0, 1)
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1359375952]
+scroll_offset = Vector2(0.5, 0)
+
+[node name="ColorRect2" type="ColorRect" parent="Parallax2D2" unique_id=1975163007]
+material = SubResource("ShaderMaterial_hyu26")
+offset_left = -584.0
+offset_top = -322.0
+offset_right = 568.0
+offset_bottom = 326.0
+scale = Vector2(2, 2)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1180430150]
+position = Vector2(576, 325)
+script = ExtResource("4_k0juu")
+
+[node name="SubViewport" type="CanvasLayer" parent="Camera2D" unique_id=1911408858]
+
+[node name="Info" parent="Camera2D/SubViewport" unique_id=1397441530 instance=ExtResource("5_71j4m")]
+offset_top = 1.0
+offset_bottom = 1.0

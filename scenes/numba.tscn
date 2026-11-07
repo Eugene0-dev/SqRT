@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cgat8v5vcixyy"]
+
+[ext_resource type="Script" uid="uid://debj6xc4qdk62" path="res://scripts/numba.gd" id="1_diay7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kbnl5"]
+radius = 21.023796
+
+[sub_resource type="LabelSettings" id="LabelSettings_kbnl5"]
+font_size = 32
+
+[node name="Numba" type="StaticBody2D" unique_id=714549474]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_diay7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=747286157]
+shape = SubResource("CircleShape2D_kbnl5")
+
+[node name="Label" type="Label" parent="." unique_id=1902352814]
+offset_left = -43.0
+offset_top = -23.0
+offset_right = 42.0
+offset_bottom = 35.0
+text = "1"
+label_settings = SubResource("LabelSettings_kbnl5")
+horizontal_alignment = 1
