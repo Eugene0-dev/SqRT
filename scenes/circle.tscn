@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b20aggmxn5oc0"]
 
-[ext_resource type="Shader" uid="uid://dwwh4bhm2nscf" path="res://shaders/outline.gdshader" id="1_3e3c1"]
-[ext_resource type="Script" uid="uid://cugyjrkf08uea" path="res://scripts/circle.gd" id="1_g1fdt"]
-[ext_resource type="Shader" uid="uid://luki7bk83tm4" path="res://shaders/fill.gdshader" id="2_g1fdt"]
+[ext_resource type="Shader" uid="uid://drs5il1jl7pq1" path="res://shaders/outline.gdshader" id="1_3e3c1"]
+[ext_resource type="Script" uid="uid://bwq5vbkluk211" path="res://scripts/circle.gd" id="1_g1fdt"]
+[ext_resource type="Shader" uid="uid://oespjy30286q" path="res://shaders/fill.gdshader" id="2_g1fdt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g1fdt"]
 radius = 15.0

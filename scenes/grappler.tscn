@@ -40,9 +40,10 @@ shader_parameter/animation_speed = 0.5
 [sub_resource type="PrismMesh" id="PrismMesh_52dfa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u26i2"]
+radius = 13.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dl74c"]
-radius = 91.26884
+radius = 300.0
 
 [node name="Grappler" type="CharacterBody2D" unique_id=1274850122]
 
@@ -84,5 +85,4 @@ shape = SubResource("CircleShape2D_u26i2")
 [node name="Sight_Area2D" type="Area2D" parent="." unique_id=785081965]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sight_Area2D" unique_id=1744730789]
-position = Vector2(0, 12)
 shape = SubResource("CircleShape2D_dl74c")

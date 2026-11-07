@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://bav8fk643m40r"]
+
+[ext_resource type="Shader" uid="uid://drs5il1jl7pq1" path="res://shaders/outline.gdshader" id="1_h4wc7"]
+[ext_resource type="Shader" uid="uid://oespjy30286q" path="res://shaders/fill.gdshader" id="2_5rapy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_52dfa"]
+shader = ExtResource("1_h4wc7")
+shader_parameter/glow_color = Color(0, 1, 0, 0.7058824)
+shader_parameter/glow_intensity = 2.000000095
+shader_parameter/pulse_speed = 4.0
+shader_parameter/pulse_min = 0.400000019
+
+[sub_resource type="PrismMesh" id="PrismMesh_dl74c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c4orl"]
+shader = ExtResource("1_h4wc7")
+shader_parameter/glow_color = Color(0, 0.9989807, 0, 0.7058824)
+shader_parameter/glow_intensity = 2.000000095
+shader_parameter/pulse_speed = 4.0
+shader_parameter/pulse_min = 0.400000019
+
+[sub_resource type="PrismMesh" id="PrismMesh_u26i2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oqcqh"]
+shader = ExtResource("2_5rapy")
+shader_parameter/color_one = Color(0, 1, 0, 1)
+shader_parameter/color_two = Color(0, 0.78235406, 0, 1)
+shader_parameter/noise_scale = 8.0
+shader_parameter/animation_speed = 0.5
+
+[sub_resource type="PrismMesh" id="PrismMesh_c4orl"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_u26i2"]
+b = Vector2(-15, -31)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_dl74c"]
+b = Vector2(15, -31)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_c4orl"]
+b = Vector2(15, 32)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_52dfa"]
+b = Vector2(-15, 32)
+
+[node name="Rhomb" type="CharacterBody2D" unique_id=2138836187]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1268779488]
+polygon = PackedVector2Array(0, -30, -15, 0, 0, 30, 15, 0)
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="CollisionPolygon2D" unique_id=1841537186]
+material = SubResource("ShaderMaterial_52dfa")
+position = Vector2(0, 15)
+scale = Vector2(30, 30)
+mesh = SubResource("PrismMesh_dl74c")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CollisionPolygon2D" unique_id=2131934151]
+material = SubResource("ShaderMaterial_c4orl")
+position = Vector2(-1.0658141e-13, -15)
+rotation = 3.1415925
+scale = Vector2(30, 30)
+mesh = SubResource("PrismMesh_u26i2")
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="CollisionPolygon2D/MeshInstance2D" unique_id=318242487]
+material = SubResource("ShaderMaterial_oqcqh")
+position = Vector2(0, -0.025)
+scale = Vector2(0.9, 0.95)
+mesh = SubResource("PrismMesh_c4orl")
+
+[node name="MeshInstance2D4" type="MeshInstance2D" parent="CollisionPolygon2D/MeshInstance2D" unique_id=1431808152]
+material = SubResource("ShaderMaterial_oqcqh")
+position = Vector2(0, -0.975)
+rotation = -3.1415927
+scale = Vector2(0.9, 0.95)
+mesh = SubResource("PrismMesh_c4orl")
+
+[node name="Damage_Area2D" type="Area2D" parent="." unique_id=1836662494]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage_Area2D" unique_id=780207947]
+position = Vector2(15, 0)
+shape = SubResource("SegmentShape2D_u26i2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Damage_Area2D" unique_id=572105672]
+position = Vector2(-15, 0)
+shape = SubResource("SegmentShape2D_dl74c")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Damage_Area2D" unique_id=301118990]
+position = Vector2(-15, 0)
+shape = SubResource("SegmentShape2D_c4orl")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Damage_Area2D" unique_id=1290486983]
+position = Vector2(15, 0)
+shape = SubResource("SegmentShape2D_52dfa")

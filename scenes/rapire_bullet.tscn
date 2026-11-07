@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cbxuttvboix7q"]
+
+[ext_resource type="Shader" uid="uid://oespjy30286q" path="res://shaders/fill.gdshader" id="1_qllqc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dl74c"]
+shader = ExtResource("1_qllqc")
+shader_parameter/color_one = Color(1, 1, 1, 1)
+shader_parameter/color_two = Color(0.5370987, 0.5370987, 0.5370987, 1)
+shader_parameter/noise_scale = 30.0
+shader_parameter/animation_speed = 5.0
+
+[sub_resource type="PrismMesh" id="PrismMesh_60t6m"]
+
+[node name="Rapire_Bullet" type="CharacterBody2D" unique_id=1895721233]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1936002786]
+polygon = PackedVector2Array(0, -7, 7, 7, -7, 7)
+disabled = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1809832689]
+material = SubResource("ShaderMaterial_dl74c")
+rotation = 3.1415925
+scale = Vector2(15, 15)
+mesh = SubResource("PrismMesh_60t6m")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=881876083]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1907183165]
+polygon = PackedVector2Array(0, -8, 8, 8, -8, 8)
