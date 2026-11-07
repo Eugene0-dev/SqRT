@@ -24,7 +24,7 @@ var blast_damage_modifier: float = 1.0
 var basic_contact_damage: float = 100.0
 var contact_damage_modifier: float = 1.0
 var rotation_speed: float = 5.0
-var orbit_radius: float = 400.0
+var orbit_radius: float = 200.0
 var angular_speed: float = 1.0
 
 var square: Square
@@ -158,7 +158,7 @@ func spin(destiny: Vector2, delta, back: bool = false) -> Vector2:
 	return direction
 
 func idle(delta: float) -> void:
-	angle += delta
+	angle += delta/2
 	var destination := square.global_position + Vector2(
 		cos(angle),
 		sin(angle)

@@ -40,11 +40,12 @@ func _ready() -> void:
 		square.global_position + Vector2(0.0, -100.0),
 		{"health": 200, "square": square}
 	)
-	spawn(
-		shape_types.STRIKE,
-		square.global_position + Vector2(0.0, 100.0),
-		{"health": 200, "square": square, "speed": 200}
-	)
+	for i in range(10):
+		spawn(
+			shape_types.STRIKE,
+			square.global_position + Vector2(0.0, 100.0+i*20),
+			{"health": 200, "square": square, "speed": 200}
+		)
 	drop(
 		object_types.COUNTA,
 		Vector2.ZERO, {}

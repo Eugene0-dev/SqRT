@@ -6,7 +6,7 @@ extends Shape
 
 var square: Square
 var rotation_speed: float = 5.0
-var orbit_radius: float = 250.0
+var orbit_radius: float = 270.0
 var angle: float = 0
 var target: Shape
 var enemies: Array[Shape] = []
