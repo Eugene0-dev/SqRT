@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://p6dkytgbualm"]
 
-[ext_resource type="Script" uid="uid://dcn5ny27dvk82" path="res://scripts/world.gd" id="1_4wyf3"]
-[ext_resource type="Shader" uid="uid://gqjxso10kekk" path="res://shaders/background.gdshader" id="1_nnsk1"]
-[ext_resource type="Shader" uid="uid://c7rx2oc3ucpkm" path="res://shaders/bg_l2.gdshader" id="2_rwgxs"]
-[ext_resource type="Script" uid="uid://bh4b55cofquva" path="res://scripts/camera.gd" id="4_k0juu"]
+[ext_resource type="Script" uid="uid://dvedpbpyqqysu" path="res://scripts/world.gd" id="1_4wyf3"]
+[ext_resource type="Shader" uid="uid://bwapi8281vh63" path="res://shaders/background.gdshader" id="1_nnsk1"]
+[ext_resource type="Shader" uid="uid://dp6klfpqi1lem" path="res://shaders/bg_l2.gdshader" id="2_rwgxs"]
+[ext_resource type="Script" uid="uid://c2cmjqx7uo2ht" path="res://scripts/camera.gd" id="4_k0juu"]
 [ext_resource type="PackedScene" uid="uid://bney85h8qdpc0" path="res://scenes/UI/info.tscn" id="5_71j4m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kbnl5"]
