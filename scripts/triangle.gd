@@ -25,6 +25,7 @@ var basic_contact_damage: float = 100.0
 var contact_damage_modifier: float = 1.0
 var rotation_speed: float = 5.0
 var orbit_radius: float = 400.0
+var angular_speed: float = 1.0
 
 var square: Square
 var angle: float = 0
@@ -163,12 +164,16 @@ func idle(delta: float) -> void:
 		sin(angle)
 	) * orbit_radius
 	
-	velocity = global_position.direction_to(destination) * speed
+	var tanget := Vector2(-sin(angle), cos(angle) * (orbit_radius * angular_speed))
+	var correction := global_position.direction_to(destination) * global_position.distance_to(destination) * 5.0
+	
+	velocity = tanget + correction
 	spin(square.global_position, delta, true)
 
 func alt_idle(delta: float) -> void:
-	angle += delta
+	angle += angular_speed * delta
 	velocity = Vector2(
 		sin(angle), cos(angle/4)
 	) * speed
+	
 	rotate(delta)

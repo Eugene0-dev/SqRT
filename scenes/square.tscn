@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b6wxq7ea7qnk3"]
 
-[ext_resource type="Script" uid="uid://3jn3kajq5t2a" path="res://scripts/square.gd" id="1_0thag"]
-[ext_resource type="Shader" uid="uid://drs5il1jl7pq1" path="res://shaders/outline.gdshader" id="1_qmd2u"]
-[ext_resource type="Shader" uid="uid://oespjy30286q" path="res://shaders/fill.gdshader" id="2_0thag"]
+[ext_resource type="Script" uid="uid://hjt336j1afu6" path="res://scripts/square.gd" id="1_0thag"]
+[ext_resource type="Shader" uid="uid://dwwh4bhm2nscf" path="res://shaders/outline.gdshader" id="1_qmd2u"]
+[ext_resource type="Shader" uid="uid://luki7bk83tm4" path="res://shaders/fill.gdshader" id="2_0thag"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbnl5"]
 size = Vector2(50, 50)
