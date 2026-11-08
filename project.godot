@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*uid://glds4da4jwmo"
-UpgradeManager="*uid://bf1qoe4krttt3"
+Global="*uid://n48fojbbuxav"
+UpgradeManager="*uid://cfyh446py3amw"
 
 [display]
 
