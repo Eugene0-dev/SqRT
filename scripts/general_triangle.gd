@@ -35,6 +35,9 @@ func _ready() -> void:
 
 func take_damage(amount: float) -> void: pass
 
+func _process(delta: float) -> void:
+	blast_damage_modifier = basic_blast_damage*Global.get_upgrade_impact(UpgradeManager.upgrade_types.MULTIPLY)
+
 func _physics_process(delta: float) -> void:
 	if enemies.is_empty():
 		super(delta)
