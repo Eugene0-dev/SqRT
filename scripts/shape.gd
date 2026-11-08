@@ -2,13 +2,11 @@
 class_name Shape
 extends CharacterBody2D
 
-@export
-var max_health: int = 100
-var health: int
-@export
-var damage: int
-@export
-var speed: float = 100.0
+@export var max_health: float = 100
+@export var damage: int
+@export var speed: float = 100.0
+
+var health: float
 
 signal shape_destroyed(shape: Shape)
 
@@ -17,7 +15,7 @@ func setup(args: Dictionary) -> void:
 	if args.has("speed"): speed = args["speed"]
 	health = max_health
 
-func take_damage(amount: int) -> void:
+func take_damage(amount: float) -> void:
 	health -= amount
 	if health <= 0: die()
 

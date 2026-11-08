@@ -44,6 +44,8 @@ func setup(args: Dictionary) -> void:
 
 func aim(delta) -> void:
 	target = null
+	is_target_aimed = false
+	
 	var min_distance: float = INF
 	
 	for enemy in enemies:
