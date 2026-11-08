@@ -1,0 +1,419 @@
+[gd_scene format=3 uid="uid://rprejp78e0lw"]
+
+[ext_resource type="Theme" uid="uid://bj2rj1se2gtth" path="res://themes/upgrade_shop_theme.tres" id="1_ow4b2"]
+[ext_resource type="LabelSettings" uid="uid://bbqbchsdpx7q2" path="res://themes/upgrade_shop_font.tres" id="2_p4oqg"]
+
+[node name="Upgrade_Shop" type="Control" unique_id=1445756783]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_ow4b2")
+
+[node name="Panel" type="Panel" parent="." unique_id=550418629]
+layout_mode = 0
+offset_right = 381.0
+offset_bottom = 648.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1601868405]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = 339.0
+offset_bottom = 643.0
+
+[node name="Plus_Update" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=456548101]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Plus_Update" unique_id=1585281388]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+text = "+"
+label_settings = ExtResource("2_p4oqg")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/Plus_Update" unique_id=1974434230]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Label3" type="Label" parent="Panel/VBoxContainer/Plus_Update" unique_id=1789278521]
+custom_minimum_size = Vector2(265, 0)
+layout_mode = 2
+text = "Increases summon cup"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/Plus_Update" unique_id=982128515]
+layout_mode = 2
+text = "Buy"
+
+[node name="Label4" type="Label" parent="Panel/VBoxContainer/Plus_Update" unique_id=1046737920]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Multiply_Update" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=382067477]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Multiply_Update" unique_id=1493567676]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+text = "*"
+label_settings = ExtResource("2_p4oqg")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/Multiply_Update" unique_id=1067823261]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Label3" type="Label" parent="Panel/VBoxContainer/Multiply_Update" unique_id=1483284445]
+custom_minimum_size = Vector2(265, 0)
+layout_mode = 2
+text = "Increases blast damage"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/Multiply_Update" unique_id=1838175972]
+layout_mode = 2
+text = "Buy"
+
+[node name="Label4" type="Label" parent="Panel/VBoxContainer/Multiply_Update" unique_id=247111537]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Division_Update" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=1919476263]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Division_Update" unique_id=1346757256]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+text = "/"
+label_settings = ExtResource("2_p4oqg")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/Division_Update" unique_id=250379735]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Label3" type="Label" parent="Panel/VBoxContainer/Division_Update" unique_id=911775248]
+custom_minimum_size = Vector2(265, 0)
+layout_mode = 2
+text = "Decreases amount of circles"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/Division_Update" unique_id=1987327291]
+layout_mode = 2
+text = "Buy"
+
+[node name="Label4" type="Label" parent="Panel/VBoxContainer/Division_Update" unique_id=823533904]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Minus_Update" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=1169039918]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Minus_Update" unique_id=1601188779]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+text = "-"
+label_settings = ExtResource("2_p4oqg")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/Minus_Update" unique_id=209138647]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Label3" type="Label" parent="Panel/VBoxContainer/Minus_Update" unique_id=1554242783]
+custom_minimum_size = Vector2(265, 0)
+layout_mode = 2
+text = "Decreases summon cup"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/Minus_Update" unique_id=1151854027]
+layout_mode = 2
+text = "Buy"
+
+[node name="Label4" type="Label" parent="Panel/VBoxContainer/Minus_Update" unique_id=753390019]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Inc_Update" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=2145527932]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Inc_Update" unique_id=186261419]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+text = "++"
+label_settings = ExtResource("2_p4oqg")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/Inc_Update" unique_id=1954255932]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Label3" type="Label" parent="Panel/VBoxContainer/Inc_Update" unique_id=1778269386]
+custom_minimum_size = Vector2(265, 0)
+layout_mode = 2
+text = "Auto summon frequency"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/Inc_Update" unique_id=472991857]
+layout_mode = 2
+text = "Buy"
+
+[node name="Label4" type="Label" parent="Panel/VBoxContainer/Inc_Update" unique_id=1497167916]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Dec_Update" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=2105758375]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Dec_Update" unique_id=561809527]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+text = "--"
+label_settings = ExtResource("2_p4oqg")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/Dec_Update" unique_id=317833153]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Label3" type="Label" parent="Panel/VBoxContainer/Dec_Update" unique_id=408569216]
+custom_minimum_size = Vector2(265, 0)
+layout_mode = 2
+text = "Decreases summon health"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/Dec_Update" unique_id=998040626]
+layout_mode = 2
+text = "Buy"
+
+[node name="Label4" type="Label" parent="Panel/VBoxContainer/Dec_Update" unique_id=2009251722]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Factorial_Update" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=119701804]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Factorial_Update" unique_id=1508612998]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+text = "!"
+label_settings = ExtResource("2_p4oqg")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/Factorial_Update" unique_id=1107518234]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Label3" type="Label" parent="Panel/VBoxContainer/Factorial_Update" unique_id=868016010]
+custom_minimum_size = Vector2(265, 0)
+layout_mode = 2
+text = "Allows summon powerbanks"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/Factorial_Update" unique_id=1888020409]
+layout_mode = 2
+text = "Buy"
+
+[node name="Label4" type="Label" parent="Panel/VBoxContainer/Factorial_Update" unique_id=734129192]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Pow_Update" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=958670456]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Pow_Update" unique_id=1244350788]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+text = "^"
+label_settings = ExtResource("2_p4oqg")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/Pow_Update" unique_id=1222632549]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Label3" type="Label" parent="Panel/VBoxContainer/Pow_Update" unique_id=179263123]
+custom_minimum_size = Vector2(265, 0)
+layout_mode = 2
+text = "Increases square health"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/Pow_Update" unique_id=1915379953]
+layout_mode = 2
+text = "Buy"
+
+[node name="Label4" type="Label" parent="Panel/VBoxContainer/Pow_Update" unique_id=21425067]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Log_update" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=577258458]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Log_update" unique_id=78430878]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+text = "log"
+label_settings = ExtResource("2_p4oqg")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/Log_update" unique_id=1469775806]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Label3" type="Label" parent="Panel/VBoxContainer/Log_update" unique_id=1894522400]
+custom_minimum_size = Vector2(265, 0)
+layout_mode = 2
+text = "Increases Triangle speed"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/Log_update" unique_id=96666543]
+layout_mode = 2
+text = "Buy"
+
+[node name="Label4" type="Label" parent="Panel/VBoxContainer/Log_update" unique_id=1204226191]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Rapire_Update" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=1181184620]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Rapire_Update" unique_id=1207848889]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+text = "R"
+label_settings = ExtResource("2_p4oqg")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/Rapire_Update" unique_id=761471803]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Label3" type="Label" parent="Panel/VBoxContainer/Rapire_Update" unique_id=833041641]
+custom_minimum_size = Vector2(265, 0)
+layout_mode = 2
+text = "Increases summon Rapire cup"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/Rapire_Update" unique_id=1181102921]
+layout_mode = 2
+text = "Buy"
+
+[node name="Label4" type="Label" parent="Panel/VBoxContainer/Rapire_Update" unique_id=1286062791]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Grappler_Update" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=1687562759]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Grappler_Update" unique_id=1264146565]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+text = "G"
+label_settings = ExtResource("2_p4oqg")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/Grappler_Update" unique_id=1460429457]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Label3" type="Label" parent="Panel/VBoxContainer/Grappler_Update" unique_id=255229213]
+custom_minimum_size = Vector2(265, 0)
+layout_mode = 2
+text = "Increases summon Grappler cup"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/Grappler_Update" unique_id=1878501476]
+layout_mode = 2
+text = "Buy"
+
+[node name="Label4" type="Label" parent="Panel/VBoxContainer/Grappler_Update" unique_id=552227180]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Sentry_Update" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=642170430]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Sentry_Update" unique_id=287365092]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+text = "S"
+label_settings = ExtResource("2_p4oqg")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/Sentry_Update" unique_id=1933966717]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Label3" type="Label" parent="Panel/VBoxContainer/Sentry_Update" unique_id=1125080390]
+custom_minimum_size = Vector2(265, 0)
+layout_mode = 2
+text = "Increases summon Sentry cup"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/Sentry_Update" unique_id=677932683]
+layout_mode = 2
+text = "Buy"
+
+[node name="Label4" type="Label" parent="Panel/VBoxContainer/Sentry_Update" unique_id=1055549516]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Phomb_Update" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=511480974]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Phomb_Update" unique_id=1916637803]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+text = "H"
+label_settings = ExtResource("2_p4oqg")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/Phomb_Update" unique_id=1847305323]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Label3" type="Label" parent="Panel/VBoxContainer/Phomb_Update" unique_id=1453042859]
+custom_minimum_size = Vector2(265, 0)
+layout_mode = 2
+text = "Increases summon Phomb cup"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/Phomb_Update" unique_id=1177266406]
+layout_mode = 2
+text = "Buy"
+
+[node name="Label4" type="Label" parent="Panel/VBoxContainer/Phomb_Update" unique_id=1302301984]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_p4oqg")
+
+[node name="Button" type="Button" parent="Panel" unique_id=1267291429]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 613.0
+offset_right = 374.0
+offset_bottom = 642.0
+text = "Close"
