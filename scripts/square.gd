@@ -39,6 +39,7 @@ func _physics_process(delta: float) -> void:
 
 func die() -> void:
 	var tween = get_tree().create_tween()
+	tween.set_parallel(true)
 	tween.tween_property(outline, "scale", Vector2(2, 2), 2)
 	tween.tween_property(fill, "scale", Vector2(0.5, 0.5), 1)
 	tween.tween_property(fill, "rotation", 800, 8)
