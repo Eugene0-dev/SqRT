@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://p6dkytgbualm"]
 
-[ext_resource type="Script" uid="uid://dvedpbpyqqysu" path="res://scripts/world.gd" id="1_4wyf3"]
-[ext_resource type="Shader" uid="uid://bwapi8281vh63" path="res://shaders/background.gdshader" id="1_nnsk1"]
-[ext_resource type="Shader" uid="uid://dp6klfpqi1lem" path="res://shaders/bg_l2.gdshader" id="2_rwgxs"]
-[ext_resource type="Script" uid="uid://c2cmjqx7uo2ht" path="res://scripts/camera.gd" id="4_k0juu"]
+[ext_resource type="Script" uid="uid://dcn5ny27dvk82" path="res://scripts/world.gd" id="1_4wyf3"]
+[ext_resource type="Shader" uid="uid://gqjxso10kekk" path="res://shaders/background.gdshader" id="1_nnsk1"]
+[ext_resource type="Shader" uid="uid://c7rx2oc3ucpkm" path="res://shaders/bg_l2.gdshader" id="2_rwgxs"]
+[ext_resource type="Shader" uid="uid://caqjvqagyx1ae" path="res://shaders/black_hole.gdshader" id="3_qfnet"]
+[ext_resource type="Script" uid="uid://bh4b55cofquva" path="res://scripts/camera.gd" id="4_k0juu"]
 [ext_resource type="PackedScene" uid="uid://bney85h8qdpc0" path="res://scenes/UI/info.tscn" id="5_71j4m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kbnl5"]
@@ -12,6 +13,19 @@ shader_parameter/space_bg_color = Color(0.02, 0.01, 0.05, 1)
 shader_parameter/star_density = 160.000007125
 shader_parameter/twinkle_speed = 3.0000001392401203
 shader_parameter/parallax_scroll_speed = Vector2(0.02, 0.01)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hwkiw"]
+shader = ExtResource("3_qfnet")
+shader_parameter/hole_radius = 0.1
+shader_parameter/lens_strength = 0.008
+shader_parameter/disk_angle = -0.18
+shader_parameter/disk_flatten = 0.22
+shader_parameter/rotation_speed = 0.002
+shader_parameter/brightness = 0.5
+shader_parameter/time_scale = 1.0
+shader_parameter/disk_inner = Color(1, 0.24, 0.035, 1)
+shader_parameter/disk_outer = Color(0.9, 0.055, 0.015, 1)
+shader_parameter/disk_hot = Color(1, 0.82, 0.48, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hyu26"]
 shader = ExtResource("2_rwgxs")
@@ -25,7 +39,7 @@ shader_parameter/drift_speed = Vector2(0.01, 0.005)
 script = ExtResource("1_4wyf3")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1857262916]
-scroll_offset = Vector2(0.2, 0)
+scroll_offset = Vector2(0.2, 0.2)
 
 [node name="ColorRect" type="ColorRect" parent="Parallax2D" unique_id=181192765]
 material = SubResource("ShaderMaterial_kbnl5")
@@ -36,8 +50,18 @@ offset_bottom = 331.0
 scale = Vector2(2, 2)
 color = Color(0, 0, 0, 1)
 
+[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=1164108491]
+scroll_offset = Vector2(0.3, 0.3)
+
+[node name="ColorRect" type="ColorRect" parent="Parallax2D3" unique_id=2116832970]
+material = SubResource("ShaderMaterial_hwkiw")
+offset_left = 666.7
+offset_top = 1.699997
+offset_right = 1150.0
+offset_bottom = 318.7
+
 [node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1359375952]
-scroll_offset = Vector2(0.5, 0)
+scroll_offset = Vector2(0.5, 0.5)
 
 [node name="ColorRect2" type="ColorRect" parent="Parallax2D2" unique_id=1975163007]
 material = SubResource("ShaderMaterial_hyu26")
@@ -54,5 +78,6 @@ script = ExtResource("4_k0juu")
 [node name="SubViewport" type="CanvasLayer" parent="Camera2D" unique_id=1911408858]
 
 [node name="Info" parent="Camera2D/SubViewport" unique_id=1397441530 instance=ExtResource("5_71j4m")]
-offset_top = 1.0
+offset_left = -1.0
+offset_right = 3.0
 offset_bottom = 1.0
