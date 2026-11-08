@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cgbigau6i3llo"]
 
+[ext_resource type="Script" uid="uid://ccc51xsevv8gd" path="res://scripts/general_triangle.gd" id="1_8ul5g"]
 [ext_resource type="Shader" uid="uid://dwwh4bhm2nscf" path="res://shaders/outline.gdshader" id="1_h7xi0"]
-[ext_resource type="Script" uid="uid://ck2406whn0x2w" path="res://scripts/triangle.gd" id="1_u1wel"]
 [ext_resource type="Shader" uid="uid://luki7bk83tm4" path="res://shaders/fill.gdshader" id="2_u1wel"]
 [ext_resource type="PackedScene" uid="uid://hqidl1l7ynp1" path="res://scenes/laser.tscn" id="4_l0nj1"]
 [ext_resource type="Shader" uid="uid://bvoo2qhirppgn" path="res://shaders/charge.gdshader" id="5_8ul5g"]
@@ -40,7 +40,7 @@ radius = 1.0
 b = Vector2(0, -48)
 
 [node name="Triangle" type="CharacterBody2D" unique_id=1316564721]
-script = ExtResource("1_u1wel")
+script = ExtResource("1_8ul5g")
 
 [node name="Laser" parent="." unique_id=426381609 instance=ExtResource("4_l0nj1")]
 position = Vector2(0, -26)
@@ -76,7 +76,6 @@ position = Vector2(2, 1)
 shape = SubResource("CircleShape2D_kbnl5")
 
 [node name="Damage_Area2D" type="Area2D" parent="." unique_id=1237243480]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Damage_Area2D" unique_id=2096547470]
 position = Vector2(0, -31)
