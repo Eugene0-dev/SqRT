@@ -90,16 +90,15 @@ func spin(destiny: Vector2, delta, back: bool = false) -> Vector2:
 	return direction
 
 func idle(delta: float) -> void:
-	angle += delta/2
+	angle += speed / orbit_radius * delta
 	var destination := square.global_position + Vector2(
 		cos(angle),
 		sin(angle)
 	) * orbit_radius
 	
-	var tanget := Vector2(-sin(angle), cos(angle) * (orbit_radius * angular_speed))
-	var correction := global_position.direction_to(destination) * global_position.distance_to(destination) * 5.0
-	
-	velocity = tanget + correction
+	velocity = global_position.direction_to(destination) *\
+	global_position.distance_to(destination) *\
+	speed / orbit_radius
 	spin(square.global_position, delta, true)
 
 func alt_idle(delta: float) -> void:
