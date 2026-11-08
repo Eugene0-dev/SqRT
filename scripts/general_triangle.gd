@@ -33,6 +33,8 @@ func _ready() -> void:
 	dash_field.body_exited.connect(on_dash_body_exited)
 	laser.blast_colided.connect(on_blast_collided)
 
+func take_damage(amount: float) -> void: pass
+
 func _physics_process(delta: float) -> void:
 	if enemies.is_empty():
 		super(delta)
