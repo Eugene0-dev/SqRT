@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://rprejp78e0lw"]
 
 [ext_resource type="Theme" uid="uid://bj2rj1se2gtth" path="res://themes/upgrade_shop_theme.tres" id="1_ow4b2"]
+[ext_resource type="Script" uid="uid://dhiqq84a4jutg" path="res://scripts/UI/upgrade_shop.gd" id="2_22sey"]
 [ext_resource type="LabelSettings" uid="uid://bbqbchsdpx7q2" path="res://themes/upgrade_shop_font.tres" id="2_p4oqg"]
 
 [node name="Upgrade_Shop" type="Control" unique_id=1445756783]
 layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("1_ow4b2")
+script = ExtResource("2_22sey")
 
 [node name="Panel" type="Panel" parent="." unique_id=550418629]
 layout_mode = 0
@@ -41,7 +43,7 @@ layout_mode = 2
 text = "Increases summon cup"
 label_settings = ExtResource("2_p4oqg")
 
-[node name="Button" type="Button" parent="Panel/VBoxContainer/Plus_Update" unique_id=982128515]
+[node name="Plus_Button" type="Button" parent="Panel/VBoxContainer/Plus_Update" unique_id=982128515]
 layout_mode = 2
 text = "Buy"
 
@@ -417,3 +419,5 @@ offset_top = 613.0
 offset_right = 374.0
 offset_bottom = 642.0
 text = "Close"
+
+[connection signal="pressed" from="Panel/VBoxContainer/Plus_Update/Plus_Button" to="." method="_on_plus_button_pressed"]

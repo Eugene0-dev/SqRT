@@ -1,11 +1,10 @@
-class_name UpgradeManager
 extends Node
 
 enum upgrade_types {
 	PLUS, MULTIPLY, DIVISION, MINUS, INC, DEC, FACTORIAL, POW, LOG
 }
 
-var upgrades: Dictionary[upgrade_types, int] = {}
+var upgrades: Dictionary[upgrade_types, int]
 
 func _ready() -> void:
 	for type in upgrade_types:

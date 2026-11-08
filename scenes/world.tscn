@@ -6,6 +6,8 @@
 [ext_resource type="Shader" uid="uid://caqjvqagyx1ae" path="res://shaders/black_hole.gdshader" id="3_qfnet"]
 [ext_resource type="Script" uid="uid://bh4b55cofquva" path="res://scripts/camera.gd" id="4_k0juu"]
 [ext_resource type="PackedScene" uid="uid://bney85h8qdpc0" path="res://scenes/UI/info.tscn" id="5_71j4m"]
+[ext_resource type="Script" uid="uid://dnc4uhh4g5xbt" path="res://scripts/UI/game_interface_controller.gd" id="6_4mrxx"]
+[ext_resource type="PackedScene" uid="uid://rprejp78e0lw" path="res://scenes/UI/upgrade_shop.tscn" id="8_7r4gi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kbnl5"]
 shader = ExtResource("1_nnsk1")
@@ -76,8 +78,12 @@ position = Vector2(576, 325)
 script = ExtResource("4_k0juu")
 
 [node name="SubViewport" type="CanvasLayer" parent="Camera2D" unique_id=1911408858]
+script = ExtResource("6_4mrxx")
 
 [node name="Info" parent="Camera2D/SubViewport" unique_id=1397441530 instance=ExtResource("5_71j4m")]
 offset_left = -1.0
 offset_right = 3.0
 offset_bottom = 1.0
+
+[node name="Upgrade_Shop" parent="Camera2D/SubViewport" unique_id=1445756783 instance=ExtResource("8_7r4gi")]
+visible = false

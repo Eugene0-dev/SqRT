@@ -40,6 +40,7 @@ func _physics_process(delta: float) -> void:
 func collect_numba(numba: Numba) -> void:
 	value += numba.value
 	numba_collected.emit(numba)
+	Global.numba_value = value
 	numba.queue_free()
 
 func move_to(pos: Vector2, delta) -> void:
